@@ -13,7 +13,6 @@ gem 'uglifier'
 gem 'jquery-rails'
 
 group :production do
-  gem 'pg'
   gem 'therubyracer-heroku', '0.8.1.pre3', :platforms => :ruby
 end
 
