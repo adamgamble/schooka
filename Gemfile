@@ -16,6 +16,8 @@ gem 'jquery-rails'
 group :development, :test do
   # Pretty printed test output
   gem 'cucumber-rails'
+  gem 'rspec-rails'
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'turn', :require => false
+  gem "erb2haml"
 end
