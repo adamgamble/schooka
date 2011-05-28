@@ -7,11 +7,14 @@
     = javascript_include_tag "application"
     = javascript_include_tag "http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"
     = csrf_meta_tags
-    %meta{:name => "viewport", :content => "user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"}
-    %meta{:name => "apple-mobile-web-app-capable", :content => "yes"}
-    %meta{:name => "apple-mobile-web-app-status-bar-style", :content => "black"}
+    :plain
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+      <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
   %body
     %div{"data-role" => "page"}
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}", :class => "ui-body ui-body-e"
       = yield
+:javascript
+  $('#flash_notice').delay(3000).slideUp(300)
