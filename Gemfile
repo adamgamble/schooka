@@ -13,6 +13,9 @@ gem 'therubyracer'
 
 gem 'jquery-rails'
 
+group :production do
+  gem 'therubyracer-heroku'
+end
 
 group :development, :test do
   # Pretty printed test output
