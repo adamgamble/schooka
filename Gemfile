@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.0.rc1'
 gem 'haml-rails'
 gem 'sqlite3'
+gem 'rake', '0.8.7'
 
 # Asset template engines
 gem 'sass'
