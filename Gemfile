@@ -14,7 +14,8 @@ gem 'therubyracer'
 gem 'jquery-rails'
 
 group :production do
-  gem 'therubyracer-heroku'
+  gem 'pg'
+  gem 'therubyracer-heroku', '0.8.1.pre3', :platforms => :ruby
 end
 
 group :development, :test do
