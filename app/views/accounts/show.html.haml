@@ -1,0 +1,6 @@
+%div{"data-role" => "header"}
+  %h1= @account.name
+%div{"data-role" => "content"}
+  %ul{"data-role" => "listview"}
+    -@account.envelopes.each do |envelope|
+      %li=envelope.to_s

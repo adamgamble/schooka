@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'sass'
 gem 'coffee-script'
 gem 'uglifier'
+gem 'therubyracer'
 
 gem 'jquery-rails'
 

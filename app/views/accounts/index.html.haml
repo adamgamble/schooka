@@ -1,0 +1,6 @@
+%div{"data-role" => "header"}
+  %h1 Accounts
+%div{"data-role" => "content"}
+  %ul{"data-role" => "listview"}
+    -@accounts.each do |account|
+      %li=link_to account.to_s, account_path(account)

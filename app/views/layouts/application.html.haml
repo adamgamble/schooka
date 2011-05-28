@@ -3,7 +3,12 @@
   %head
     %title Schooka
     = stylesheet_link_tag    "application"
+    = stylesheet_link_tag    "http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css"
     = javascript_include_tag "application"
+    = javascript_include_tag "http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"
     = csrf_meta_tags
   %body
-    = yield
+    %div{"data-role" => "page"}
+      - flash.each do |name, msg|
+        = content_tag :div, msg, :id => "flash_#{name}", :class => "ui-body ui-body-e"
+      = yield
