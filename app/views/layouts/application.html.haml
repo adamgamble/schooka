@@ -22,3 +22,7 @@
 :javascript
   $('#flash_notice').delay(3000).slideUp(300)
   $('#flash_error').delay(3000).slideUp(300)
+  $("a").click(function (event) {
+      event.preventDefault();
+      window.location = $(this).attr("href");
+  });
