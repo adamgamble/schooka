@@ -1,0 +1,19 @@
+%div{"data-role" => "header"}
+  %h1= @envelope.name
+%div{"data-role" => "content"}
+  = form_for Transaction.new do |f|
+    %div{"data-role" => "fieldcontain}
+      =f.label :name
+      =f.text_field :name
+      %br
+      =f.label :amount
+      =f.text_field :amount
+      %br
+      =f.submit
+  %h2 Last five transactions
+  %ul{"data-role" => "listview"}
+    -@transactions.each do |transaction|
+      %li
+        ="#{transaction.created_at.strftime('%m-%d-%y')} - #{transaction.name}"
+        %div{:class => "ui-li-aside ui-li-desc"}
+          %strong=number_to_currency(transaction.amount)

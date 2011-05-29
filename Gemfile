@@ -14,6 +14,7 @@ gem 'jquery-rails'
 
 group :production do
   gem 'therubyracer-heroku', '0.8.1.pre3', :platforms => :ruby
+  gem 'pg'
 end
 
 group :development, :test do
