@@ -7,7 +7,7 @@
       =f.label :name
       =f.text_field :name
       =f.label :amount
-      =f.text_field :amount
+      %input{:type => "number", :name => "transaction[amount]", :id => "transaction_amount"}
       %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
         %legend Debit?
         %input{:type => "radio", :name => "debit?", "value" => "true", :checked => "checked", :id => "transaction_debit_true"}

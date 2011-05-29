@@ -10,7 +10,7 @@ class TransactionsController < ApplicationController
   def create
     params["transaction"]["amount"] = BigDecimal(params["transaction"]["amount"]) * -1 if params["debit?"] == "true"
     if @envelope.transactions.create(params["transaction"])
-      redirect_to account_path(@envelope.account)
+      redirect_to account_envelope_path(@envelope.account, @envelope)
     else
       render :nothing => true, :status => 500
     end
