@@ -9,7 +9,7 @@
       =f.label :amount
       =f.text_field :amount
       %div{"data-role" => "fieldcontain"}
-        %fieldset{"data-role" => "controlgroup"}
+        %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
           %legend Debit?
           %input{:type => "radio", :name => "debit?", "value" => "true", :checked => "checked", :id => "transaction_debit_true"}
           %label{:for => "transaction_debit_true"} Debit
