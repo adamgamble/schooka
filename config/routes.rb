@@ -1,7 +1,9 @@
 Schooka::Application.routes.draw do
   resources :sessions
   resources :accounts do
-    resources :envelopes
+    resources :envelopes do
+      resources :transactions
+    end
   end
   match "login" => "sessions#new"
   match "logout" => "sessions#delete"

@@ -1,13 +1,20 @@
 %div{"data-role" => "header"}
   %h1= @envelope.name
 %div{"data-role" => "content"}
-  = form_for Transaction.new do |f|
-    %div{"data-role" => "fieldcontain}
+  = form_for Transaction.new, :url => account_envelope_transactions_path(@envelope.account, @envelope) do |f|
+    %div{"data-role" => "fieldcontain"}
       =f.label :name
       =f.text_field :name
       %br
       =f.label :amount
       =f.text_field :amount
+      %div{"data-role" => "fieldcontain"}
+        %fieldset{"data-role" => "controlgroup"}
+          %legend Debit?
+          %input{:type => "radio", :name => "debit?", "value" => "true", :checked => "checked", :id => "transaction_debit_true"}
+          %label{:for => "transaction_debit_true"} Debit
+          %input{:type => "radio", :name => "debit?", "value" => "false", :id => "transaction_debit_false"}
+          %label{:for => "transaction_debit_false"} Deposit
       %br
       =f.submit
   %h2 Last five transactions

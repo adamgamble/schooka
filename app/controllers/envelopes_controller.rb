@@ -8,7 +8,7 @@ class EnvelopesController < ApplicationController
   end
 
   def load_last_five_transactions
-    @transactions = @envelope.transactions.find(:all, :limit => 5)
+    @transactions = @envelope.transactions.find(:all, :limit => 5, :order => "created_at DESC")
   end
 
   public
