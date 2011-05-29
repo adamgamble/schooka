@@ -1,5 +1,5 @@
 %div{"data-role" => "header"}
-  %h1= @envelope.name
+  %h1= @envelope.to_s
   %a{:href => account_path(@envelope.account), :class => "ui-btn-left ui-btn-back", "data-icon" => "arrow-l"}Back
 %div{"data-role" => "content"}
   = form_for Transaction.new, :url => account_envelope_transactions_path(@envelope.account, @envelope) do |f|
@@ -7,7 +7,7 @@
       =f.label :name
       =f.text_field :name
       =f.label :amount
-      %input{:type => "number", :name => "transaction[amount]", :id => "transaction_amount"}
+      =f.text_field :amount
       %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
         %legend Debit?
         %input{:type => "radio", :name => "debit?", "value" => "true", :checked => "checked", :id => "transaction_debit_true"}

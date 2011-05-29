@@ -15,4 +15,9 @@ class Envelope < ActiveRecord::Base
     end
     "#{name}  #{str_balance}"
   end
+
+  def can_debit_for? amount
+    amount = BigDecimal(amount) if amount.is_a?(String)
+    !(amount > balance)
+  end
 end
