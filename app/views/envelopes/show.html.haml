@@ -5,17 +5,14 @@
     %div{"data-role" => "fieldcontain"}
       =f.label :name
       =f.text_field :name
-      %br
       =f.label :amount
       =f.text_field :amount
-      %div{"data-role" => "fieldcontain"}
-        %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
-          %legend Debit?
-          %input{:type => "radio", :name => "debit?", "value" => "true", :checked => "checked", :id => "transaction_debit_true"}
-          %label{:for => "transaction_debit_true"} Debit
-          %input{:type => "radio", :name => "debit?", "value" => "false", :id => "transaction_debit_false"}
-          %label{:for => "transaction_debit_false"} Deposit
-      %br
+      %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
+        %legend Debit?
+        %input{:type => "radio", :name => "debit?", "value" => "true", :checked => "checked", :id => "transaction_debit_true"}
+        %label{:for => "transaction_debit_true"} Debit
+        %input{:type => "radio", :name => "debit?", "value" => "false", :id => "transaction_debit_false"}
+        %label{:for => "transaction_debit_false"} Deposit
       =f.submit
   %h2 Last five transactions
   %ul{"data-role" => "listview"}
