@@ -1,5 +1,6 @@
 %div{"data-role" => "header"}
   %h1= @account.name
+  %a{:href => accounts_path, :class => "ui-btn-left ui-btn-back", "data-icon" => "arrow-l"}Back
 %div{"data-role" => "content"}
   %ul{"data-role" => "listview"}
     -@account.envelopes.each do |envelope|
