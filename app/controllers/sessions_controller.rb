@@ -6,7 +6,8 @@ class SessionsController < ApplicationController
 
   def create
     if user = User.find_by_email_address(params[:email_address]).try(:authenticate, params[:password])
-      user.update_attribute(:last_login, Time.now)
+      user.previous_last_login, user.last_login = user.last_login, Time.now
+      user.save
       session[:user_id] = user.id
       flash[:notice] = "Logged In"
       redirect_to accounts_path

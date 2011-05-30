@@ -5,6 +5,7 @@ class AccountsController < ApplicationController
   private
   def load_accounts
     @accounts = current_user.budget.accounts
+    @transactions_since_last_login = current_user.budget.transactions.since(current_user.previous_last_login)
   end
 
   def load_account

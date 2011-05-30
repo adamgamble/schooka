@@ -4,5 +4,13 @@
   %ul{"data-role" => "listview"}
     -@accounts.each do |account|
       %li=link_to account.to_s, account_path(account)
-%div{"data-role" => "header"}
-  %h1 Transactions Since Last Login
+-if @transactions_since_last_login.any?
+  %div{"data-role" => "header"}
+    %h1 Transactions Since Last Login
+    %div{"data-role" => "content"}
+      %ul{"data-role" => "listview"}
+        -@transactions_since_last_login.each do |transaction|
+          %li
+            ="#{transaction.created_at.strftime('%m-%d-%y')} - #{transaction.envelope.name} - #{transaction.name}"
+            %div{:class => "ui-li-aside ui-li-desc"}
+              %strong=number_to_currency(transaction.amount)
