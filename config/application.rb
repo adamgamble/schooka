@@ -45,6 +45,6 @@ module Schooka
 
     # Enable the asset pipeline
     config.assets.enabled = true
-    config.force_ssl = true
+    config.force_ssl = false
   end
 end
