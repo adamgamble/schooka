@@ -13,10 +13,18 @@ class SessionsController < ApplicationController
       create_remember_me_cookies user
       session[:user_id] = user.id
       flash[:notice] = "Logged In"
-      redirect_to accounts_path
+      if !params[:api]
+        redirect_to accounts_path
+      else
+        render :xml => {:success => 1, :message => "Logged in successfully."}.to_json
+      end
     else
-      flash[:error] = "Bad user/password combo"
-      render :new
+      if !params[:api]
+        flash[:error] = "Bad user/password combo"
+        render :new
+      else
+        render :xml => {:success => 0, :message => "Bad user pass combo"}.to_json
+      end
     end
   end
 
