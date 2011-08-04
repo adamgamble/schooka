@@ -9,4 +9,9 @@ class Api::V1::EnvelopesController < Api::V1::BaseController
     @envelope = current_user.accounts.find(params[:account_id]).envelopes.find(params[:id])
     respond_with(@envelope)
   end
+
+  def create
+    @envelope = current_user.accounts.find(params[:account_id]).envelopes.create(params["envelope"])
+    respond_with(@envelope)
+  end
 end

@@ -9,4 +9,9 @@ class Api::V1::AccountsController < Api::V1::BaseController
     @account = current_user.accounts.find(params[:id])
     respond_with(@account)
   end
+
+  def create
+    @account = current_user.budget.accounts.create(params["account"])
+    respond_with(@account)
+  end
 end
