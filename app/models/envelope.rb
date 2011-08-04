@@ -3,7 +3,7 @@ class Envelope < ActiveRecord::Base
   has_many :transactions
 
   def balance
-    transactions.sum(:amount)
+    transactions.sum(:amount).round(2)
   end
 
   def to_s

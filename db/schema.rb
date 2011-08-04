@@ -42,13 +42,13 @@ ActiveRecord::Schema.define(:version => 20110530212244) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email_address"
-    t.string   "password_digest"
-    t.integer  "budget_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.datetime "last_login"
-    t.datetime "previous_last_login"
+    t.string    "email_address"
+    t.string    "password_digest"
+    t.integer   "budget_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.timestamp "last_login"
+    t.timestamp "previous_last_login"
   end
 
 end
