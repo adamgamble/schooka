@@ -1,5 +1,5 @@
 class Api::V1::BaseController < ApplicationController
-  before_filter :check_authentication
+  #before_filter :check_authentication
 
   def check_authentication
     if user = User.find_by_email_address(params[:email_address]).try(:authenticate, params[:password])

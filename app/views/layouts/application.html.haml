@@ -3,26 +3,19 @@
   %head
     %title Schooka
     = stylesheet_link_tag    "application"
-    = stylesheet_link_tag    "jquery.mobile-1.0a4.1.min.css"
+    = stylesheet_link_tag    "http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.min.css"
     = javascript_include_tag "application"
-    :javascript
-      $(document).bind("mobileinit", function(){
-        $.mobile.ajaxEnabled = false;
-      });
-    = javascript_include_tag "jquery.mobile-1.0a4.1.min.js"
+    = javascript_include_tag "http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.min.js"
     = csrf_meta_tags
     :plain
       <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   %body
-    %div{"data-role" => "page"}
+    %div{"data-role" => "page", "data-add-back-btn" => "true"}
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}", :class => "ui-body ui-body-e"
       = yield
 :javascript
   $('#flash_notice').delay(3000).slideUp(300)
   $('#flash_error').delay(3000).slideUp(300)
-  $("a").click(function (event) {
-      event.preventDefault();
-      window.location = $(this).attr("href");
-  });

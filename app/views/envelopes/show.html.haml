@@ -1,6 +1,5 @@
 %div{"data-role" => "header"}
   %h1= @envelope.to_s
-  %a{:href => account_path(@envelope.account), :class => "ui-btn-left ui-btn-back", "data-icon" => "arrow-l"}Back
 %div{"data-role" => "content"}
   %h3= "Envelope Balance: #{number_to_currency(@envelope.balance)}"
   = form_for Transaction.new, :url => account_envelope_transactions_path(@envelope.account, @envelope) do |f|
