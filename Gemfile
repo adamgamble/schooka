@@ -6,15 +6,13 @@ gem 'haml-rails'
 gem 'pg', "0.11.0"
 gem 'therubyracer', "0.9.0"
 gem 'rabl'
-gem 'heroku'
-gem 'taps'
 # Asset template engines
 gem 'sass'
 gem 'coffee-script'
 gem 'uglifier'
 gem 'jquery-rails'
 
-group :development, :test do
+group :test do
   # Pretty printed test output
   gem 'factory_girl_rails'
   gem 'ffaker'
