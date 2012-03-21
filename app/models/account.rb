@@ -13,11 +13,13 @@ class Account < ActiveRecord::Base
 
   def to_s
     _balance = balance
+=begin
     if _balance < BigDecimal("0")
       str_balance = "$(#{_balance.abs.to_s})"
     else
       str_balance = "$#{_balance.to_s}"
     end
-    "#{name}  #{str_balance}"
+=end
+    "#{name}  #{balance.to_s}"
   end
 end
