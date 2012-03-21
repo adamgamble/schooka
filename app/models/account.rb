@@ -4,7 +4,7 @@ class Account < ActiveRecord::Base
   has_many :transactions, :through => :envelopes
 
   def balance
-    update_balance unless balance_cache
+    update_balance if balance_cache.nil?
     balance_cache
   end
 
