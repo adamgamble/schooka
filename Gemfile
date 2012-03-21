@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 
-gem 'rails', '3.1.0'
+gem 'rails', '3.2.2'
 gem 'haml-rails'
 gem 'pg', "0.11.0"
 gem 'therubyracer', "0.9.0"
