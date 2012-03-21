@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110530212244) do
+ActiveRecord::Schema.define(:version => 20120321190933) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(:version => 20110530212244) do
     t.datetime "updated_at"
   end
 
+  add_index "envelopes", ["account_id"], :name => "index_envelopes_on_account_id"
+
   create_table "transactions", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -41,6 +43,8 @@ ActiveRecord::Schema.define(:version => 20110530212244) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "transactions", ["envelope_id"], :name => "index_transactions_on_envelope_id"
 
   create_table "users", :force => true do |t|
     t.string   "email_address"
