@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120321191551) do
+ActiveRecord::Schema.define(:version => 20120321195920) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(:version => 20120321191551) do
     t.datetime "updated_at"
     t.decimal  "balance_cache", :precision => 10, :scale => 2
   end
+
+  add_index "accounts", ["budget_id"], :name => "index_accounts_on_budget_id"
 
   create_table "budgets", :force => true do |t|
     t.string   "name"
