@@ -4,7 +4,11 @@ class Account < ActiveRecord::Base
   has_many :transactions, :through => :envelopes
 
   def balance
-    transactions.sum(:amount).round(2)
+    balance_cache
+  end
+
+  def update_balance
+    update_attribute(:balance_cache, transactions.sum(:amount).round(2))
   end
 
   def to_s

@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120321190933) do
+ActiveRecord::Schema.define(:version => 20120321191551) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
     t.integer  "budget_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "balance_cache", :precision => 10, :scale => 2
   end
 
   create_table "budgets", :force => true do |t|
@@ -31,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20120321190933) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "balance_cache", :precision => 10, :scale => 2
   end
 
   add_index "envelopes", ["account_id"], :name => "index_envelopes_on_account_id"
