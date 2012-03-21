@@ -4,6 +4,7 @@ class Account < ActiveRecord::Base
   has_many :transactions, :through => :envelopes
 
   def balance
+    update_balance unless balance_cache
     balance_cache
   end
 
@@ -13,13 +14,11 @@ class Account < ActiveRecord::Base
 
   def to_s
     _balance = balance
-=begin
     if _balance < BigDecimal("0")
       str_balance = "$(#{_balance.abs.to_s})"
     else
       str_balance = "$#{_balance.to_s}"
     end
-=end
-    "#{name}  #{balance.to_s}"
+    "#{name}  #{str_balance}"
   end
 end
