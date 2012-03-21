@@ -3,7 +3,7 @@
   %a{:href => accounts_path, :class => "ui-btn-left ui-btn-back", "data-icon" => "arrow-l"}Back
 %div{"data-role" => "content"}
   %ul{"data-role" => "listview"}
-    -@account.envelopes.each do |envelope|
+    -@account.envelopes.order("name ASC").each do |envelope|
       %li
         %a{:href => account_envelope_path(@account,envelope)}
           =envelope.name
