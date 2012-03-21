@@ -11,6 +11,7 @@ gem 'sass'
 gem 'coffee-script'
 gem 'uglifier'
 gem 'jquery-rails'
+gem 'bcrypt-ruby'
 
 group :test do
   # Pretty printed test output
