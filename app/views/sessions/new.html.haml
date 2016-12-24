@@ -1,8 +1,0 @@
-%div{"data-role" => "header"}
-  %h1 Accounts
-%div{"data-role" => "content"}
-  = form_tag sessions_path, "data-ajax" => "false" do
-    %div{"data-role" => "fieldcontain"}
-    = text_field_tag :email_address, nil, placeholder: 'Email', autocapitalize: "off"
-    = password_field_tag :password, nil, placeholder: 'Password'
-    = submit_tag :Login, :class => 'submit'
