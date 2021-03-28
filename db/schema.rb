@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_28_222425) do
+ActiveRecord::Schema.define(version: 2021_03_28_225301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2021_03_28_222425) do
     t.integer "organization_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "cached_balance"
   end
 
   create_table "envelopes", force: :cascade do |t|
@@ -27,6 +28,7 @@ ActiveRecord::Schema.define(version: 2021_03_28_222425) do
     t.integer "account_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "cached_balance"
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -37,7 +39,7 @@ ActiveRecord::Schema.define(version: 2021_03_28_222425) do
 
   create_table "transactions", force: :cascade do |t|
     t.string "name"
-    t.string "value"
+    t.string "amount"
     t.integer "envelope_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -51,6 +53,7 @@ ActiveRecord::Schema.define(version: 2021_03_28_222425) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "organization_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

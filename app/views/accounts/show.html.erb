@@ -1,0 +1,23 @@
+<div data-role="header">
+  <h1>
+    <%= account_display(@account) %>
+  </h1>
+  <a class="ui-btn-left ui-btn-back" data-icon="arrow-l" href="<%= accounts_path %>">Back</a>
+</div>
+<div data-role="content">
+  <ul data-role="listview">
+    <% @account.envelopes.order("name ASC").each do |envelope| %>
+      <li>
+        <a href="<%= account_envelope_path(@account,envelope) %>">
+          <%= envelope.name %>
+          <div class="ui-li-aside ui-li-desc">
+            <strong>
+              <%= number_to_currency(envelope.cached_balance) %>
+            </strong>
+          </div>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</div>
+

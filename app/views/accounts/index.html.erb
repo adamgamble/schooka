@@ -1,0 +1,6 @@
+<h1>Accounts</h1>
+<ul>
+  <% @accounts.each do |account| %>
+    <li><%= link_to account_display(account), account_path(account) %></li>
+  <% end %>
+</ul>

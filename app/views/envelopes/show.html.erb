@@ -1,0 +1,41 @@
+<div data-role="header">
+  <h1>
+    <%= @envelope.name %>
+  </h1>
+  <a class="ui-btn-left ui-btn-back" data-icon="arrow-l" href="<%= account_path(@envelope.account) %>">Back</a>
+</div>
+<div data-role="content">
+  <h3>
+   <%= "Envelope Balance: #{number_to_currency(@envelope.cached_balance)}" %>
+  </h3>
+  <%= form_for Transaction.new, :url => account_envelope_transactions_path(@envelope.account, @envelope) do |f| %>
+    <div data-role="fieldcontain">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <%= f.label :amount %>
+      <%= f.text_field :amount %>
+      <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend>Debit?</legend>
+        <input checked="checked" id="transaction_debit_true" name="debit?" type="radio" value="true"></input>
+        <label for="transaction_debit_true">Debit</label>
+        <input id="transaction_debit_false" name="debit?" type="radio" value="false"></input>
+        <label for="transaction_debit_false">Deposit</label>
+      </fieldset>
+      <%= f.submit %>
+    </div>
+  <% end %>
+  <h2>Last five transactions</h2>
+  <ul data-role="listview">
+    <% @envelope.transactions.order('created_at desc').limit(5).each do |transaction| %>
+      <li>
+        <%= "#{transaction.created_at.strftime('%m-%d-%y')} - #{transaction.name}" %>
+        <div class="ui-li-aside ui-li-desc">
+          <strong>
+            <%= number_to_currency(transaction.amount) %>
+          </strong>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
